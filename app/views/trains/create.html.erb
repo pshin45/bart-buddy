@@ -1,0 +1,16 @@
+<p>
+  <strong>Departing from:</strong><br>
+  <%= @start_station.name %>
+</p>
+ 
+<p>
+  <strong>Headed towards:</strong><br>
+  <%= @direction.name %>
+</p>
+
+
+<p>
+	<% @start_station.departures.map do |d| %>
+		<%= [d.destination.name, d.estimates.map { |e| e.minutes }] %>
+	<% end %>
+</p>
