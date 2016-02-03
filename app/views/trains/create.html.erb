@@ -1,16 +1,23 @@
 <p>
-  <strong>Departing from:</strong><br>
+  <strong>You're departing from:</strong><br>
   <%= @start_station.name %>
 </p>
- 
-<p>
-  <strong>Headed towards:</strong><br>
-  <%= @direction.name %>
-</p>
 
+<hr>
 
-<p>
-	<% @start_station.departures.map do |d| %>
-		<%= [d.destination.name, d.estimates.map { |e| e.minutes }] %>
-	<% end %>
-</p>
+<% @start_station.departures.each do |d| %>
+	<p>
+		<%= d.destination.name %>
+	</p>
+	<p>
+		<% d.estimates.each do |e| %>
+			<%= submit_tag(e.minutes) %>
+		<% end %>
+	</p>
+<% end %>
+
+<%= form_for @train, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_area :body, size: "60x12" %>
+  <%= f.submit "Create" %>
+<% end %>
