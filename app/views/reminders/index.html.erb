@@ -1,0 +1,8 @@
+<p>Sounds good!</p>
+
+<p>Your train will depart at <%= (Time.now + @minutes.to_i*60).strftime("%-l:%M%P") %></p>
+
+<p>I'll text you at:</p>
+<p><%= (Time.now + @minutes.to_i*60 - 15*60).strftime("%-l:%M%P") %> (start wrapping up)</p>
+<p><%= (Time.now + @minutes.to_i*60 - 5*60).strftime("%-l:%M%P") %> (leave the building)</p>
+<p><%= (Time.now + @minutes.to_i*60 - 1*60).strftime("%-l:%M%P") %> (train's coming! run!)</p>

@@ -1,4 +1,4 @@
-<%= form_for :trip, url: trains_path do |f| %>
+<%= form_for :stations, url: trains_path do |f| %>
   <p>
     <%= f.label :start_station, "Starting Station" %><br>
     <%= f.select(:start_station, options_for_select(

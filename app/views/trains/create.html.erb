@@ -5,19 +5,14 @@
 
 <hr>
 
+<p><strong>Select a train:</strong></p>
 <% @start_station.departures.each do |d| %>
 	<p>
 		<%= d.destination.name %>
 	</p>
 	<p>
 		<% d.estimates.each do |e| %>
-			<%= submit_tag(e.minutes) %>
+			<%= link_to "#{e.minutes} min (#{(Time.now + e.minutes*60).strftime("%-l:%M%P")})", reminder_path(min: e.minutes) %>
 		<% end %>
 	</p>
-<% end %>
-
-<%= form_for @train, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
-  <%= f.text_field :title %>
-  <%= f.text_area :body, size: "60x12" %>
-  <%= f.submit "Create" %>
 <% end %>
