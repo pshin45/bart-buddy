@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
   resources :trains
   get 'reminders' => 'reminders#index', as: :reminder
+  post 'reminders' => 'reminders#send_text', as: :send_text
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

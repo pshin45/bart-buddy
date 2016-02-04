@@ -6,8 +6,9 @@ class ApplicationController < ActionController::Base
   # Found the following code at these two sites:
   # http://stackoverflow.com/questions/27698983/saving-other-attributes-to-user-model-with-devise-gem
   # http://www.peoplecancode.com/tutorials/adding-custom-fields-to-devise
+  # https://github.com/kradul/bewd_sf_12/blob/master/13_Authentication/notes.md
 
-  before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
 
