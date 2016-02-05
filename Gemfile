@@ -29,6 +29,8 @@ gem 'pry-rails'
 
 gem 'twilio-ruby'
 
+gem 'rufus-scheduler'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

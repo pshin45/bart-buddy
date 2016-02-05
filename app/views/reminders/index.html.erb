@@ -6,10 +6,5 @@
 <p>Your train will depart at <%= (Time.now + @minutes.to_i*60).strftime("%-l:%M%P") %></p>
 
 <p>I'll text you at:</p>
-<p><%= (Time.now + @minutes.to_i*60 - 15*60).strftime("%-l:%M%P") %> (15 min away)</p>
 <p><%= (Time.now + @minutes.to_i*60 - 5*60).strftime("%-l:%M%P") %> (5 min away)</p>
 <p><%= (Time.now + @minutes.to_i*60 - 1*60).strftime("%-l:%M%P") %> (train's coming! run!)</p>
-
-<%= form_tag send_text_url(@contact) do %>
-<%= submit_tag "Send message" %>
-<% end %>
