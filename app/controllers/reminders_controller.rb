@@ -3,28 +3,28 @@ require 'rufus-scheduler'
 class RemindersController < ApplicationController
   def index
     @minutes = params[:min]
-
+    @phone = params[:phone]
     send_text_0
 
-    scheduler = Rufus::Scheduler.new
+    # scheduler = Rufus::Scheduler.new
 
-    if @minutes.to_i > 10
-      scheduler.in (@minutes.to_i - 10).to_s + 'm' do
-        send_text_1
-      end
-    end     
+    # if @minutes.to_i > 10
+    #   scheduler.in (@minutes.to_i - 10).to_s + 'm' do
+    #     send_text_1
+    #   end
+    # end     
 
-    if @minutes.to_i > 5
-      scheduler.in (@minutes.to_i - 5).to_s + 'm' do
-        send_text_2
-      end
-    end
+    # if @minutes.to_i > 5
+    #   scheduler.in (@minutes.to_i - 5).to_s + 'm' do
+    #     send_text_2
+    #   end
+    # end
 
-    if @minutes.to_i > 1
-      scheduler.in (@minutes.to_i - 1).to_s + 'm' do
-        send_text_3
-      end
-    end
+    # if @minutes.to_i > 1
+    #   scheduler.in (@minutes.to_i - 1).to_s + 'm' do
+    #     send_text_3
+    #   end
+    # end
   end
 
 
@@ -34,7 +34,7 @@ private
     account_sid = 'AC096c22a4dfe0e82ea34f0d77d1f7c790' 
     auth_token = '39af644d26e971c836e8e616318d9c17' 
 
-    @contact = '+1' + User.find(1).phone
+    @contact = '+1' + @phone
 
     # set up a client to talk to the Twilio REST API 
     @client = Twilio::REST::Client.new account_sid, auth_token 
