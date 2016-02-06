@@ -12,7 +12,7 @@
 	</p>
 	<p>
 		<% d.estimates.each do |e| %>
-			<%= link_to "#{e.minutes} min (#{(Time.now + e.minutes*60).strftime("%-l:%M%P")})", reminder_path(min: e.minutes, phone: @phone) %>
+			<%= link_to "#{e.minutes} min (#{(Time.now + e.minutes*60).strftime("%-l:%M%P")})", reminder_path(min: e.minutes, phone: @phone), class: "btn btn-default" %>
 		<% end %>
 	</p>
 <% end %>

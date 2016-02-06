@@ -1,10 +1,10 @@
 <%= form_for :trip, url: trains_path do |f| %>
   <p>
-    <%= f.label :phone, "Phone Number (to receive reminders):" %><br>
+    <%= f.label :phone, "Phone Number" %><br>
     <%= f.telephone_field :phone %>
   </p>
   <p>
-    <%= f.label :start_station, "Starting Station:" %><br>
+    <%= f.label :start_station, "Starting Station" %><br>
     <%= f.select(:start_station, options_for_select(
       [
         ["12th St. Oakland City Center", "12th" ],

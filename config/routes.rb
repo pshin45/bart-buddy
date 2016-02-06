@@ -2,8 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   get 'welcome/index'
   resources :trains
+
+  # Note to self: The "as: _____" part is called a helper method
+  # Difference between "_url" and "_path": http://stackoverflow.com/questions/11939865/named-routes-path-vs-url
+  # e.g. https://github.com/kradul/bewd_sf_12/blob/master/14_Third_Party_API/twilio_app/app/views/contact/index.html.erb
   get 'reminders' => 'reminders#index', as: :reminder
-  post 'reminders' => 'reminders#send_text', as: :send_text
+  # post 'reminders' => 'reminders#send_text', as: :send_text
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
