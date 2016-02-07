@@ -22,10 +22,6 @@ body {
   text-align: center;
 }
 
-#time-now {
-	color: #C0C0C0;
-}
-
 #times {
 	width: 200px;
 	margin: 0 auto;
@@ -33,4 +29,8 @@ body {
 
 #times .reminder {
 	text-align: left;
+}
+
+hr {
+	width: 150px;
 }

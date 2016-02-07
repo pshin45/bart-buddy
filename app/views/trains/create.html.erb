@@ -5,14 +5,16 @@
 
 <hr>
 
-<h3>Select a train:</h3>
+<h3>Select a train to receive SMS reminders:</h3>
+<p>Current time: <%= Time.zone.now.strftime("%-l:%M%P") %>
+
 <% @start_station.departures.each do |d| %>
 	<strong><p class="text-uppercase">
 		<%= d.destination.name %>
 	</p></strong>
 	<p>
 		<% d.estimates.each do |e| %>
-			<%= link_to "#{e.minutes} min (#{(Time.now + e.minutes*60).strftime("%-l:%M%P")})", reminder_path(min: e.minutes, phone: @phone), class: "btn btn-default" %>
+			<%= link_to "#{e.minutes} min (#{(Time.zone.now + e.minutes*60).strftime("%-l:%M%P")})", reminder_path(min: e.minutes, phone: @phone), class: "btn btn-default" %>
 		<% end %>
 	</p>
 <% end %>

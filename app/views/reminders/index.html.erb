@@ -1,20 +1,17 @@
-<!-- To check time on various devices -->
-<p id="time-now"><%= Time.zone.now %></p>
-
 <p>Sounds good!</p>
 
 <p>
-	Your train will depart at <strong><%= (Time.now + @minutes.to_i*60).strftime("%-l:%M%P") %></strong>
+	Your train will depart at <strong><%= (Time.zone.now + @minutes.to_i*60).strftime("%-l:%M%P") %></strong>
 </p>
 
-<br>
+<hr>
 
 <div id="times">
 <p>I'll text you at:</p>
 <p class="reminder">
-	<strong><%= (Time.now + @minutes.to_i*60 - 5*60).strftime("%-l:%M%P") %></strong> (5 min away)
+	<strong><%= (Time.zone.now + @minutes.to_i*60 - 5*60).strftime("%-l:%M%P") %></strong> (5 min away)
 </p>
 <p class="reminder">
-	<strong><%= (Time.now + @minutes.to_i*60 - 1*60).strftime("%-l:%M%P") %></strong> (train's coming! run!)
+	<strong><%= (Time.zone.now + @minutes.to_i*60 - 1*60).strftime("%-l:%M%P") %></strong> (train's coming! run!)
 </p>
 </div>
