@@ -1,15 +1,15 @@
 <p>
-  <strong>You're departing from:</strong><br>
+  <h3>You're departing from:</h3>
   <%= @start_station.name %>
 </p>
 
 <hr>
 
-<p><strong>Select a train:</strong></p>
+<h3>Select a train:</h3>
 <% @start_station.departures.each do |d| %>
-	<p>
+	<strong><p class="text-uppercase">
 		<%= d.destination.name %>
-	</p>
+	</p></strong>
 	<p>
 		<% d.estimates.each do |e| %>
 			<%= link_to "#{e.minutes} min (#{(Time.now + e.minutes*60).strftime("%-l:%M%P")})", reminder_path(min: e.minutes, phone: @phone), class: "btn btn-default" %>
