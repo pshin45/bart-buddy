@@ -2,7 +2,7 @@
   <% if user_signed_in? == false %>
     <p class="phone-field">
       <%= f.label :phone, "Phone Number" %><br>
-      <%= f.telephone_field :phone %>
+      <%= f.telephone_field :phone, :required => true %>
     </p>
   <% end %>
   <p class="station-field">

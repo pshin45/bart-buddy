@@ -1,17 +1,29 @@
 <p>Sounds good!</p>
 
 <p>
-	Your train will depart at <strong><%= (Time.zone.now + @minutes.to_i*60).strftime("%-l:%M%P") %></strong>
+	Your train will depart from <span class="station-name"><%= @start_station %></span> at <strong class="chosen-time"><%= (Time.zone.now + @minutes.to_i*60).strftime("%-l:%M%P") %></strong>
 </p>
 
 <hr>
 
+<p>We'll text you at the following times:</p>
+
 <div id="times">
-<p>I'll text you at:</p>
-<p class="reminder">
-	<strong><%= (Time.zone.now + @minutes.to_i*60 - 5*60).strftime("%-l:%M%P") %></strong> (5 min away)
-</p>
-<p class="reminder">
-	<strong><%= (Time.zone.now + @minutes.to_i*60 - 1*60).strftime("%-l:%M%P") %></strong> (train's coming! run!)
-</p>
+	<% if @minutes.to_i > 10 %>
+		<p>
+			<strong><%= (Time.zone.now + @minutes.to_i*60 - 10*60).strftime("%-l:%M%P") %></strong> - train departs in 10 min
+		</p>
+	<% end %>
+
+	<% if @minutes.to_i > 5 %>	
+		<p>
+			<strong><%= (Time.zone.now + @minutes.to_i*60 - 5*60).strftime("%-l:%M%P") %></strong> - train departs in 5 min
+		</p>
+	<% end %>
+
+	<% if @minutes.to_i > 1 %>	
+		<p>
+			<strong><%= (Time.zone.now + @minutes.to_i*60 - 1*60).strftime("%-l:%M%P") %></strong> - train's arriving now! run!
+		</p>
+	<% end %>
 </div>

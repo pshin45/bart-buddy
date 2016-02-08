@@ -1,16 +1,16 @@
 
 <h4>You're departing from:</h4>
-<p id="station-name">
+<p class="station-name">
   <%= @start_station.name %>
+</p>
+
+<p id="time">
+	Current time: <span id="current-time"><%= Time.zone.now.strftime("%-l:%M%P") %></span>
 </p>
 
 <hr>
 
 <h4>Select a train to receive SMS reminders:</h4>
-
-<p id="time">
-	Current time: <span id="current-time"><%= Time.zone.now.strftime("%-l:%M%P") %></span>
-</p>
 
 <div class="schedule-container">
 	<% @start_station.departures.each do |d| %>
@@ -21,7 +21,7 @@
 		</strong>
 		<p>
 			<% d.estimates.each do |e| %>
-				<%= link_to "#{e.minutes} min (#{(Time.zone.now + e.minutes*60).strftime("%-l:%M%P")})", reminder_path(min: e.minutes, phone: @phone), class: "btn btn-default button-styling" %>
+				<%= link_to "#{e.minutes} min (#{(Time.zone.now + e.minutes*60).strftime("%-l:%M%P")})", reminder_path(min: e.minutes, phone: @phone, station: @start_station.name), class: "btn btn-default button-styling" %>
 			<% end %>
 		</p>
 	<% end %>

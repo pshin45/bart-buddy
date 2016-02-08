@@ -22,14 +22,20 @@ body {
   text-align: center;
 }
 
-#station-name {
-	font-size: 1.5em;
+.station-name {
+	font-size: 1.25em;
 	color: #060;
 }
 
 #times {
-	width: 200px;
+	width: 280px;
 	margin: 0 auto;
+	text-align: left;
+	font-size: 1.25em;
+}
+
+.chosen-time {
+	font-size: 1.25em;
 }
 
 .destinations {
@@ -40,16 +46,12 @@ body {
 	color: #F60;
 }
 
-#times .reminder {
-	text-align: left;
-}
-
 hr {
 	width: 150px;
 }
 
 .button-styling {
-	width: 80px;
+	width: 90px;
 	white-space: normal;
 }
 
@@ -58,7 +60,7 @@ hr {
 }
 
 .schedule-container {
-	width: 260px;
+	width: 280px;
 	margin: 0 auto;
 	text-align: left;
 }
