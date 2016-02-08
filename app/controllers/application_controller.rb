@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   # http://www.peoplecancode.com/tutorials/adding-custom-fields-to-devise
   # https://github.com/kradul/bewd_sf_12/blob/master/13_Authentication/notes.md
 
-  before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
 

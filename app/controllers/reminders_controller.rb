@@ -35,7 +35,7 @@ private
     auth_token = '39af644d26e971c836e8e616318d9c17' 
 
     if user_signed_in?
-      @contact = '+1' + User.find(params[:id]).phone
+      @contact = '+1' + current_user.phone
     else
       @contact = '+1' + @phone
     end
