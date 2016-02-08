@@ -22,9 +22,22 @@ body {
   text-align: center;
 }
 
+#station-name {
+	font-size: 1.5em;
+	color: #060;
+}
+
 #times {
 	width: 200px;
 	margin: 0 auto;
+}
+
+.destinations {
+	margin-top: 25px;
+}
+
+#current-time {
+	color: #F60;
 }
 
 #times .reminder {
@@ -33,4 +46,19 @@ body {
 
 hr {
 	width: 150px;
+}
+
+.button-styling {
+	width: 80px;
+	white-space: normal;
+}
+
+.submit, .phone-field, .station-field {
+	margin-top: 30px;
+}
+
+.schedule-container {
+	width: 260px;
+	margin: 0 auto;
+	text-align: left;
 }

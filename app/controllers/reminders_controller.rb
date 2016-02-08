@@ -34,7 +34,11 @@ private
     account_sid = 'AC096c22a4dfe0e82ea34f0d77d1f7c790' 
     auth_token = '39af644d26e971c836e8e616318d9c17' 
 
-    @contact = '+1' + @phone
+    if user_signed_in?
+      @contact = '+1' + User.find(params[:id]).phone
+    else
+      @contact = '+1' + @phone
+    end
 
     # set up a client to talk to the Twilio REST API 
     @client = Twilio::REST::Client.new account_sid, auth_token 

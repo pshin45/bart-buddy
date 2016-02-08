@@ -1,20 +1,28 @@
-<p>
-  <h3>You're departing from:</h3>
+
+<h4>You're departing from:</h4>
+<p id="station-name">
   <%= @start_station.name %>
 </p>
 
 <hr>
 
-<h3>Select a train to receive SMS reminders:</h3>
-<p>Current time: <%= Time.zone.now.strftime("%-l:%M%P") %>
+<h4>Select a train to receive SMS reminders:</h4>
 
-<% @start_station.departures.each do |d| %>
-	<strong><p class="text-uppercase">
-		<%= d.destination.name %>
-	</p></strong>
-	<p>
-		<% d.estimates.each do |e| %>
-			<%= link_to "#{e.minutes} min (#{(Time.zone.now + e.minutes*60).strftime("%-l:%M%P")})", reminder_path(min: e.minutes, phone: @phone), class: "btn btn-default" %>
-		<% end %>
-	</p>
-<% end %>
+<p id="time">
+	Current time: <span id="current-time"><%= Time.zone.now.strftime("%-l:%M%P") %></span>
+</p>
+
+<div class="schedule-container">
+	<% @start_station.departures.each do |d| %>
+		<strong>
+			<p class="text-uppercase destinations">
+			<%= d.destination.name %>
+			</p>
+		</strong>
+		<p>
+			<% d.estimates.each do |e| %>
+				<%= link_to "#{e.minutes} min (#{(Time.zone.now + e.minutes*60).strftime("%-l:%M%P")})", reminder_path(min: e.minutes, phone: @phone), class: "btn btn-default button-styling" %>
+			<% end %>
+		</p>
+	<% end %>
+</div>
