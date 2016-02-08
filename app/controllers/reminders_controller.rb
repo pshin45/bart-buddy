@@ -5,7 +5,7 @@ class RemindersController < ApplicationController
     @minutes = params[:min]
     @phone = params[:phone]
     @start_station = params[:station]
-    # send_text("Thanks! We'll text you 10min, 5min, and 1min before your train arrives.")
+    send_text("Thanks! We'll text you 10min, 5min, and 1min before your train arrives.")
 
     # scheduler = Rufus::Scheduler.new
 

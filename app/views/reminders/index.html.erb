@@ -1,7 +1,8 @@
-<p>Sounds good!</p>
-
 <p>
-	Your train will depart from <span class="station-name"><%= @start_station %></span> at <strong class="chosen-time"><%= (Time.zone.now + @minutes.to_i*60).strftime("%-l:%M%P") %></strong>
+	Sounds good!<br>
+	Your train will depart from<br>
+	<span class="station-name"><%= @start_station %></span><br> 
+	at <strong class="chosen-time"><%= (Time.zone.now + @minutes.to_i*60).strftime("%-l:%M%P") %></strong>
 </p>
 
 <hr>
